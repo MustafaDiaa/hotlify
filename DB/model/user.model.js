@@ -11,7 +11,7 @@ const userScheme = new Schema(
       type: String,
       required: true,
     },
-    userName: {
+    username: {
       type: String,
       required: true,
     },
@@ -41,6 +41,10 @@ const userScheme = new Schema(
       type: Boolean,
       default: false,
     },
+    confirmPhone: {
+      type: Boolean,
+      default: false,
+    },
     status: {
       type: String,
       default: "offline",
@@ -48,7 +52,7 @@ const userScheme = new Schema(
     },
     role: {
       type: String,
-      default: "offline",
+      default: "user",
       enum: ["user", "hotelManager", "admin"],
     },
   },
