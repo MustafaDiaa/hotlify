@@ -24,7 +24,7 @@ export const signup = async (req, res, next) => {
       phone,
       password: hashPassword,
     });
-    return res.json({ message: "Done", user: createUser._id });
+    return res.json({ message: "Done", data: user });
   } catch (error) {
     return res.json({ message: "Catch Error", error, stack: error.stack });
   }
