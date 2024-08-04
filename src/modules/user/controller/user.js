@@ -29,3 +29,14 @@ export const updatedUser = asyncHandler(async (req, res, next) => {
   });
   res.status(200).json({ message: "User Updated Success.!", userUpdated });
 });
+
+//delete user
+export const deletedUser = asyncHandler(async (req, res, next) => {
+  const { id } = req.params;
+  const user = await userModel.findById({ _id: id });
+  if (!user) {
+    next(new Error("Not Found User ID"));
+  }
+  await userModel.findByIdAndDelete({ _id: id });
+  return res.status(200).json({ message: "User Deleted Success.!" });
+});
